@@ -28,7 +28,7 @@ def lambda_handler(event, context):
         # Ensure the database exists
         cursor.execute(f"CREATE DATABASE IF NOT EXISTS {db_name}")
         cursor.execute(f"USE {db_name}")
-        cursor.execute("truncate table movies")
+        
         # Ensure the table exists
         cursor.execute("""
             CREATE TABLE IF NOT EXISTS movies (
@@ -37,6 +37,7 @@ def lambda_handler(event, context):
                 tagline VARCHAR(100)
             )
         """)
+        cursor.execute("truncate table movies")
         for record in event['Records']:
             s3_object_key = record['s3']['object']['key']
             logger.info(f"Processing file: {s3_object_key}")
