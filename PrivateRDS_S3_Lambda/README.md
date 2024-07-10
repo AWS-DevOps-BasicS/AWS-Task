@@ -390,4 +390,4 @@ def lambda_handler(event, context):
    
    ![preview](images/task32.png)
   
-**S3 but successfully triggered lambda function to send data from S3 to Private RDS**
+**S3 bucket Successfully triggered lambda function to send data from S3 to Private RDS**
